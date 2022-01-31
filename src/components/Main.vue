@@ -52,7 +52,6 @@ export default {
 @import '../assets/vars.scss';
 
 .row{
-    height: calc(100vh - 70px);
     background-color: $bg-body;
 }
 </style>
