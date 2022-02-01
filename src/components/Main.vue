@@ -1,12 +1,12 @@
 <template>
     <div class="container-fluid">
 
-        <Header @cambio2="ricevutaSelect" :oggetto="mioArray"/>
+        <Header @cambio2="assegna" :oggetto="mioArray"/>
 
         <div class="row align-items-start justify-content-center text-center ">
 
             <Canzone 
-            v-for="(canzone,index) in mioArray" 
+            v-for="(canzone,index) in arrayFiltrato" 
             :key="index"
             :info="canzone"
             class="col-12 col-sm-6 p-3" />
@@ -28,15 +28,27 @@ export default {
         return{
             apiUrl : "https://flynn.boolean.careers/exercises/api/array/music",
             mioArray : [],
+            variabile : ""
         }
     },
     created(){
         this.getCanzoni();
     },
+    computed:{
+        arrayFiltrato(){
+            console.log(this.mioArray);
+            return this.mioArray.filter((element) => {
+                return element.genre.toLowerCase().includes(this.variabile.toLowerCase());
+            });
+
+        }
+    },
     methods: {
-        ricevutaSelect( valore )
+        assegna( valore) 
         {
+            this.variabile = valore;
             console.log(valore);
+            console.log(this.variabile);
         },
         getCanzoni(){
             axios
@@ -65,5 +77,6 @@ export default {
     background-color: $bg-body;
     --bs-gutter-x:0px!important;
     margin: 0%!important;
+    min-height: 100vh;
 }
 </style>

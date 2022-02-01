@@ -19,7 +19,6 @@ export default {
     data(){
         return {
             arrayGenres : [],
-            arrayNames : [],
             selezionato : ""
         }
     },
@@ -27,10 +26,6 @@ export default {
         opzioni : function(){
                 this.riempiArrayGenres()
         }
-    },
-
-    mounted(){
-        
     },
     methods: {
         riempiArrayGenres(){
