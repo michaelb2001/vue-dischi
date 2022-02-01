@@ -27,13 +27,15 @@ export default {
 
 .container-fluid{
     background-color: $bg-header;
-    min-height: 470px;
-
+    min-height: 450px;
+    width: 200px;
+    border-radius: 2px;
     .row{
 
 
         img{
         width: 100%;
+        border-radius: 2px;
         }
 
         h2{

@@ -1,23 +1,28 @@
 <template>
     <div class="container-fluid">
+
+        <Header />
+
         <div class="row align-items-start justify-content-center text-center">
 
             <Canzone 
             v-for="(canzone,index) in mioArray" 
             :key="index"
             :info="canzone"
-            class="col-12 col-sm-6 col-lg-2 g-5 p-3" />
+            class="col-12 col-sm-6 g-5 p-3" />
         </div>
     </div>
 </template>
 
 <script>
 import Canzone from './commons/Canzone.vue';
+import Header from './Header.vue'
 import axios from 'axios';
 export default {
     name: "Main",
     components: {
-        Canzone
+        Canzone,
+        Header
     },
     data(){
         return{
@@ -50,7 +55,9 @@ export default {
 <style lang="scss" scoped>
 
 @import '../assets/vars.scss';
-
+.container-fluid{
+    padding: 0%!important;
+}
 .row{
     background-color: $bg-body;
 }

@@ -1,16 +1,29 @@
 <template>
     <div class="container-fluid">
-        <div class="row ">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/768px-Spotify_logo_without_text.svg.png"
-            alt="logo spotify">
+ 
+        <div class="row align-items-center">
+            <div class="col-3">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/768px-Spotify_logo_without_text.svg.png"
+                alt="logo spotify">
+            </div>
+
+            <div class="col-9">
+                <Cerca />
+            </div>
+
+
         </div>
 
     </div>
 </template>
 
 <script>
+import Cerca from './commons/Cerca.vue'
 export default {
-    name: "Header"
+    name: "Header",
+    components:{
+        Cerca
+    }
 }
 </script>
 
@@ -26,4 +39,5 @@ export default {
         margin: 10px;
     }
 }
+
 </style>
