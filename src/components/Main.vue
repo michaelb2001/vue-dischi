@@ -1,15 +1,15 @@
 <template>
     <div class="container-fluid">
 
-        <Header />
+        <Header @cambio2="ricevutaSelect" :oggetto="mioArray"/>
 
-        <div class="row align-items-start justify-content-center text-center">
+        <div class="row align-items-start justify-content-center text-center ">
 
             <Canzone 
             v-for="(canzone,index) in mioArray" 
             :key="index"
             :info="canzone"
-            class="col-12 col-sm-6 g-5 p-3" />
+            class="col-12 col-sm-6 p-3" />
         </div>
     </div>
 </template>
@@ -34,14 +34,16 @@ export default {
         this.getCanzoni();
     },
     methods: {
+        ricevutaSelect( valore )
+        {
+            console.log(valore);
+        },
         getCanzoni(){
             axios
                 .get(this.apiUrl)
                 .then( (risposta) => {
                     // handle success
                     this.mioArray = risposta.data.response;
-                    console.log(this.mioArray);
-                    console.log(risposta.data.response);
                 })
                 .catch(function (error) {
                     // handle error
@@ -57,8 +59,11 @@ export default {
 @import '../assets/vars.scss';
 .container-fluid{
     padding: 0%!important;
+    overflow-x: hidden ;
 }
 .row{
     background-color: $bg-body;
+    --bs-gutter-x:0px!important;
+    margin: 0%!important;
 }
 </style>

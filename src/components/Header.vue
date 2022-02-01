@@ -7,11 +7,9 @@
                 alt="logo spotify">
             </div>
 
-            <div class="col-9">
-                <Cerca />
+            <div class="col-8">
+                <Cerca v-if="oggetto" :opzioni="oggetto" @cambio="cambioQui"/>
             </div>
-
-
         </div>
 
     </div>
@@ -23,6 +21,14 @@ export default {
     name: "Header",
     components:{
         Cerca
+    },
+    props:{
+        oggetto : Array
+    },
+    methods:{
+        cambioQui( variabile ){
+            this.$emit('cambio2', variabile )
+        }
     }
 }
 </script>

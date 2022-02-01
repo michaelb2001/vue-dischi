@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid m-5 p-3">
-    <div class="row flex-column align-items-start justify-content-start flex-wrap text-wrap">
+    <div class="row flex-column align-items-start justify-content-start flex-wrap text-wrap p-3">
       <img :src='info.poster' alt="info.title">
 
       <h2>{{info.title}}</h2>
