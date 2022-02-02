@@ -37,9 +37,13 @@ export default {
     computed:{
         arrayFiltrato(){
             console.log(this.mioArray);
-            return this.mioArray.filter((element) => {
-                return element.genre.toLowerCase().includes(this.variabile.toLowerCase());
-            });
+            if(this.variabile == "all"){
+                return this.mioArray
+            } else{
+                return this.mioArray.filter((element) => {
+                    return element.genre.toLowerCase().includes(this.variabile.toLowerCase());
+                });
+            }
 
         }
     },

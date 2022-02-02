@@ -3,6 +3,7 @@
     <label for="genres">Genres : </label>
 
     <select name="genres" id="genres"  @change="$emit('cambio',selezionato)" v-model="selezionato">
+        <option value="all">all</option>
         <option v-for="(element,index) in arrayGenres" :key="index" :value="element">
             {{element}}
         </option>
